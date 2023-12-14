@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- inner page section -->
+<section class="inner_page_head">
+    <div class="container_fuild">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <h3>Shop Here</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end inner page section -->
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <a href="#" class="image-popup"><img src="{{obj2.img.url}}" class="img-fluid" alt="Colorlib Template"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <div class="row mt-5">
+                    <div class="col-md-12 nav-link-wrap">
+                        <div class="heading_container heading_center">
+                            <h2>
+                                {{obj2.name}}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-12 tab-wrap">
+            
+                        <div class="tab-content bg-light" id="v-pills-tabContent">
+            
+                            <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
+                                <div class="p-4">
+                                    <h4 class="mb-4">Catagory : {{obj2.cate}}</h4>
+                                    <h4 class="price">Price : ₹{{obj2.price}}/-</h4>
+                                    <p>
+                                        {{obj2.desc}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p><a href="{% url 'addcart' obj2.id%}" class="btn btn-danger py-3 px-5">Add to Cart</a> <a href="{% url 'checkout' %}" class="btn btn-danger py-3 px-5">Buy now</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

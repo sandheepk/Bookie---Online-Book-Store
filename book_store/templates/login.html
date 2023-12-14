@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="h-100 bg-light">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="{% static 'images/login.jpg' %}" alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25remrem; border-bottom-left-radius: .25remrem;" />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase" style="color:#f7444e;">Login Here</h3>
+
+                <form action="login" method="post">
+                  {% csrf_token %}
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example97" class="form-control form-control-lg" name="username" />
+                    <label class="form-label" for="form3Example97" style="color:#f7444e;">UserName</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example97" class="form-control form-control-lg" name="password" />
+                    <label class="form-label" for="form3Example97" style="color:#f7444e;">Password</label>
+                  </div>
+
+                  <div class="text-center pt-1 mb-5 pb-1">
+                    <div class="d-flex justify-content-end pt-3">
+                      <input class="btn btn-warning btn-lg ms-2" type="submit"></input>
+                    </div>
+                    <a href="#!" style="color:#f7444e;">Forgot password?</a>
+                  </div>
+
+                </form>
+
+              </div>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+{% endblock %}

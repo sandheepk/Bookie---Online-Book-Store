@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- inner page section -->
+<section class="inner_page_head">
+    <div class="container_fuild">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="full">
+                <h3>My Wistlists</h3>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!-- end inner page section -->
+
+ <section class="h-100 h-custom">
+   <div class="container h-100 py-5">
+     <div class="row d-flex justify-content-center align-items-center h-100">
+       <div class="col">
+ 
+         <div class="table-responsive">
+           <table class="table">
+             <thead>
+               <tr>
+                 <th scope="col" class="h5">Books</th>
+                 <th scope="col">Price</th>
+                 <th scope="col">Quantity</th>
+                 <th scope="col">Total</th>
+               </tr>
+             </thead>
+             <tbody>
+              {% for i in ci %}
+                <tr>
+                  <th scope="row">
+                     <div class="d-flex align-items-center">
+                        <img src="{{i.books.img.url}}" class="img-fluid rounded-3"
+                        style="width: 120px;" alt="Book">
+                        <div class="flex-column ms-4">
+                        <p class="mb-2">{{i.books.name}}</p>
+                        <p class="mb-0">({{i.books.cate}})</p>
+                        </div>
+                     </div>
+                  </th>
+                  <td class="align-middle">
+                     <p class="mb-0" style="font-weight: 500;">₹{{i.books.price}}</p>
+                  </td>
+                  <td class="quantity">
+                    <div class="input-group mb-3">
+                      <a href="{% url 'cart_decrement' i.books.id %}" class="fa-solid fa-minus" style="padding: 10%;"></a>
+                      <input name="quantity" class="form-control form-control-sm" style="width: 50px;" value="{{i.quantity}}">
+                      <a href="{% url 'addcart' i.books.id %}" class="fa-solid fa-plus"style=" padding: 10%;"></a>
+                    </div>
+                  </td>
+                  <td class="align-middle">
+                     <p class="mb-0" style="font-weight: 500;">₹{{i.total}}</p>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+           </table>
+         </div>
+         <div class="col-lg-4 col-xl-3">
+            <div class="d-flex justify-content-between" style="font-weight: 500;">
+              <p class="mb-2">Subtotal</p>
+              <p class="mb-2">₹{{t}}</p>
+            </div>
+
+            <div class="d-flex justify-content-between" style="font-weight: 500;">
+              <p class="mb-0">Delivery</p>
+              <p class="mb-0">Free</p>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+              <p class="mb-2">Total (tax included)</p>
+              <p class="mb-2">₹{{t}}/-</p>
+            </div>
+
+            <p class="text-center"><a href="{% url 'checkout' %}" class="btn btn-danger py-3 px-4">Checkout   ₹{{t}}/-</a></p>
+
+          </div>
+
+      </div>
+     </div>
+   </div>
+ </section>
+
+
+
+{% endblock %}

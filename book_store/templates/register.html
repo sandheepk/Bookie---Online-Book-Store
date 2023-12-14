@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <section class="h-100 bg-light">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-xl-6 d-none d-xl-block">
+                <img src="{% static 'images/register.jpg' %}" alt="Sample photo" class="img-fluid" style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+              </div>
+              <div class="col-xl-6">
+                <div class="card-body p-md-5 text-black">
+                  <h3 class="mb-5 text-uppercase" style="color:#f7444e;">Registration form</h3>
+                  
+                  <form action="register" method="post">
+                    {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text"  class="form-control form-control-lg" name="first_name" />
+                        <label class="form-label" for="form3Example1m" style="color:#f7444e;">First name</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" class="form-control form-control-lg" name="last_name" />
+                        <label class="form-label" for="form3Example1n" style="color:#f7444e;">Last name</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example97" class="form-control form-control-lg" name="username" />
+                    <label class="form-label" for="form3Example97" style="color:#f7444e;">UserName</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example97" class="form-control form-control-lg" name="email" />
+                    <label class="form-label" for="form3Example97" style="color:#f7444e;">Email ID</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example97" class="form-control form-control-lg" name="password1" />
+                    <label class="form-label" for="form3Example97" style="color:#f7444e;">Password</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example97" class="form-control form-control-lg" name="password2" />
+                    <label class="form-label" for="form3Example97" style="color:#f7444e;">Comfirm Password</label>
+                  </div>
+
+                  <div class="d-flex justify-content-end pt-3">
+                    <input class="btn btn-warning btn-lg ms-2" type="submit">
+                  </div>
+
+                  <p class="mb-5 pb-lg-2" style="color: #f7444e;"><a href="{% url 'login' %}"style="color:#f7444e;" >Login Here</a></p>
+
+                </form> 
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

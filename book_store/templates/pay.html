@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<section class="h-100 gradient-custom">
+	<div class="container py-5 h-100">
+	  <div class="row d-flex justify-content-center align-items-center h-100">
+		<div class="col-lg-10 col-xl-8">
+		  <div class="card" style="border-radius: 10px;">
+			<div class="card-header px-4 py-5">
+				<center>
+					<h5><span style="color: #f7444e;">Order Placed</span></h5>
+					<h5 class="text-muted mb-0">Thanks for your Order, <span style="color: #f7444e;"> {{user.first_name}}</span>!</h5>
+					<h5><span style="color: #f7444e;"></span></h5>
+						<div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+						  <p class="text-center"><a href="/" class="btn btn-danger py-3 px-4">Continue Shopping</a></p>
+						</div>
+				</center>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- inner page section -->
+<section class="inner_page_head">
+   <div class="container_fuild">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="full">
+               <h3>Library</h3>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- end inner page section -->
+
+<section class="product_section layout_padding">
+   <div class="container">
+      <div class="heading_container heading_center">
+         <h2>
+            Books To <span>Read</span>
+         </h2>
+      </div>
+      <div class="row">
+         {% for i in data %}
+         <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
+               <div class="option_container">
+                  <div class="options">
+                     <a href="{{i.file.url}}" class="option1">
+                        Read
+                     </a>
+                     <a href="{{i.file.url}}" class="option2" download>
+                        Download
+                     </a>
+                  </div>
+               </div>
+               <div class="img-box">
+                  <img src="{{i.img.url}}" alt="">
+               </div>
+               <div class="detail-box">
+                  <h7>
+                     {{i.name}}
+                  </h7>
+                  <h7>
+                     {{i.cate}}
+                  </h7>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+
+
+
+{% endblock %}
